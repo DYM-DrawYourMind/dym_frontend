@@ -1,6 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/login';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/login";
 
 function App() {
   return (
@@ -12,5 +12,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
