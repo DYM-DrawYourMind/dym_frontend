@@ -21,7 +21,7 @@ export const useFileUpload = () => {
         }
     };
     const goToResult = async () => {
-        if(!selectedFile) {
+        if (!selectedFile) {
             alert("파일을 업로드해주세요!");
             return;
         }
@@ -32,13 +32,13 @@ export const useFileUpload = () => {
         try {
             const response = await axios.post("api/~~", formData, {
                 headers: {
-                    "Content-Type" : "multipart/form-data",
+                    "Content-Type": "multipart/form-data",
                 },
             });
             console.log("서버 응답 :", response.data);
             alert("결과 페이지로 이동합니다!");
 
-            navigate("/result", {state : {result : response.data}});
+            navigate("/result", { state: { result: response.data } });
         } catch (error) {
             console.error("업로드 실패 :", error);
             alert("업로드 중 오류가 발생 했습니다.");
@@ -46,6 +46,10 @@ export const useFileUpload = () => {
     };
 
     return {
-      fileInputRef, preview, handleUpload, handleFileChange, goToResult
+        fileInputRef,
+        preview,
+        handleUpload,
+        handleFileChange,
+        goToResult,
     };
 };

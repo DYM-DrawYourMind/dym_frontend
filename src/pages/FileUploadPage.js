@@ -6,21 +6,25 @@ import ResultButton from "../components/fileUpload/ResultBox";
 
 const FileUploadPage = () => {
     const {
-        fileInputRef, preview, handleUpload, handleFileChange, goToResult
+        fileInputRef,
+        preview,
+        handleUpload,
+        handleFileChange,
+        goToResult,
     } = useFileUpload();
 
     return (
-    <UploadPageContainer>
-        사진 업로드
-        <UploadBox 
-            preview={preview}
-            onUpload={handleUpload}
-            onFileChange={handleFileChange}
-            fileInputRef={fileInputRef}
-            defaultImage={imgBox}
-        />
-        {preview && <ResultButton onClick={goToResult} />}
-    </UploadPageContainer>
+        <UploadPageContainer>
+            사진 업로드
+            <UploadBox
+                preview={preview}
+                onUpload={handleUpload}
+                onFileChange={handleFileChange}
+                fileInputRef={fileInputRef}
+                defaultImage={imgBox}
+            />
+            {preview && <ResultButton onClick={goToResult} />}
+        </UploadPageContainer>
     );
 };
 
