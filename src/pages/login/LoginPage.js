@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Input, SocialLoginButton, SOCIAL_PROVIDERS } from '../../components/login';
 import Button from '../../components/Button';
 import { COLORS, FONT_SIZES } from '../../constants/theme';
+// 1. [추가] 백엔드 주소 불러오기
+import { BACKEND_URL } from '../../constants/config'; 
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -22,8 +24,14 @@ const LoginPage = () => {
     console.log('로그인 시도:', formData);
   };
 
+  // 2. [수정] 카카오 버튼 클릭 시 백엔드로 이동
   const handleSocialLogin = (provider) => {
-    console.log(`${provider} 로그인 시도`);
+    if (provider === '카카오') {
+      // 백엔드가 만들어둔 카카오 로그인 시작 주소로 이동
+      window.location.href = `${BACKEND_URL}/auth/kakao/login`;
+    } else {
+      console.log(`${provider} 로그인 시도 - 아직 구현되지 않음`);
+    }
   };
 
   const isFormValid = formData.username && formData.password;
@@ -76,6 +84,7 @@ const LoginPage = () => {
             provider={SOCIAL_PROVIDERS.GOOGLE}
             onClick={() => handleSocialLogin('구글')}
           />
+          {/* 여기서 '카카오'를 넘겨주므로 위 함수에서 provider === '카카오'로 잡습니다 */}
           <SocialLoginButton
             provider={SOCIAL_PROVIDERS.KAKAO}
             onClick={() => handleSocialLogin('카카오')}
@@ -90,6 +99,7 @@ const LoginPage = () => {
   );
 };
 
+// ... 아래 스타일 코드는 그대로 두시면 됩니다 ...
 const Container = styled.div`
   display: flex;
   align-items: center;
