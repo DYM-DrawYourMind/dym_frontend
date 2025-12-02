@@ -1,32 +1,36 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Input, SocialLoginButton, SOCIAL_PROVIDERS } from '../../components/login';
-import Button from '../../components/Button';
-import { COLORS, FONT_SIZES } from '../../constants/theme';
+import React, { useState } from "react";
+import styled from "styled-components";
+import {
+  Input,
+  SocialLoginButton,
+  SOCIAL_PROVIDERS,
+} from "../../components/login";
+import Button from "../../components/Button";
+import { COLORS, FONT_SIZES } from "../../constants/theme";
 // 1. [추가] 백엔드 주소 불러오기
-import { BACKEND_URL } from '../../constants/config'; 
+import { BACKEND_URL } from "../../constants/config";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleLogin = () => {
-    console.log('로그인 시도:', formData);
+    console.log("로그인 시도:", formData);
   };
 
   // 2. [수정] 카카오 버튼 클릭 시 백엔드로 이동
   const handleSocialLogin = (provider) => {
-    if (provider === '카카오') {
+    if (provider === "카카오") {
       // 백엔드가 만들어둔 카카오 로그인 시작 주소로 이동
       window.location.href = `${BACKEND_URL}/auth/kakao/login`;
     } else {
@@ -63,11 +67,7 @@ const LoginPage = () => {
           </InputContainer>
 
           <ButtonContainer>
-            <Button
-              fullWidth
-              onClick={handleLogin}
-              disabled={!isFormValid}
-            >
+            <Button fullWidth onClick={handleLogin} disabled={!isFormValid}>
               계속
             </Button>
           </ButtonContainer>
@@ -80,18 +80,10 @@ const LoginPage = () => {
         </DividerSection>
 
         <SocialLoginSection>
-          <SocialLoginButton
-            provider={SOCIAL_PROVIDERS.GOOGLE}
-            onClick={() => handleSocialLogin('구글')}
-          />
           {/* 여기서 '카카오'를 넘겨주므로 위 함수에서 provider === '카카오'로 잡습니다 */}
           <SocialLoginButton
             provider={SOCIAL_PROVIDERS.KAKAO}
-            onClick={() => handleSocialLogin('카카오')}
-          />
-          <SocialLoginButton
-            provider={SOCIAL_PROVIDERS.NAVER}
-            onClick={() => handleSocialLogin('네이버')}
+            onClick={() => handleSocialLogin("카카오")}
           />
         </SocialLoginSection>
       </LoginCard>
@@ -120,7 +112,7 @@ const LoginCard = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'NeoDunggeunmo', sans-serif;
+  font-family: "NeoDunggeunmo", sans-serif;
   font-size: ${FONT_SIZES.large};
   font-weight: normal;
   color: ${COLORS.text.primary};
@@ -162,7 +154,7 @@ const DividerLine = styled.div`
 `;
 
 const OrText = styled.p`
-  font-family: 'NeoDunggeunmo', sans-serif;
+  font-family: "NeoDunggeunmo", sans-serif;
   font-size: ${FONT_SIZES.medium};
   color: rgba(0, 0, 0, 0.5);
   margin: 0;

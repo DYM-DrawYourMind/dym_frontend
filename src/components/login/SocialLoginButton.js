@@ -1,36 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const SOCIAL_PROVIDERS = {
-  GOOGLE: 'google',
-  KAKAO: 'kakao',
-  NAVER: 'naver'
+  GOOGLE: "google",
+  KAKAO: "kakao",
+  NAVER: "naver",
 };
 
 const SocialLoginButton = ({ provider, onClick }) => {
   const getIconPath = () => {
     switch (provider) {
-      case SOCIAL_PROVIDERS.GOOGLE:
-        return '/google.png';
       case SOCIAL_PROVIDERS.KAKAO:
-        return '/kakao.png';
-      case SOCIAL_PROVIDERS.NAVER:
-        return '/naver.png';
+        return "/kakao.png";
+
       default:
-        return '';
+        return "";
     }
   };
 
   const getProviderName = () => {
     switch (provider) {
       case SOCIAL_PROVIDERS.GOOGLE:
-        return '구글';
+        return "구글";
       case SOCIAL_PROVIDERS.KAKAO:
-        return '카카오';
+        return "카카오";
       case SOCIAL_PROVIDERS.NAVER:
-        return '네이버';
+        return "네이버";
       default:
-        return '';
+        return "";
     }
   };
 
