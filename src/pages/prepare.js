@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-// 전역 스타일 import
-
+import prepareImg from "../assets/images/prepare.jpg";
 // 이미지의 프레임과 배경을 표현하는 컨테이너
 const Frame = styled.div`
-  /* 프레임 스타일 */
-  width: 800px; /* 적절한 크기로 조정 */
+  width: 800px;
   height: 600px;
   margin: 50px auto;
   padding: 40px;
@@ -13,33 +11,46 @@ const Frame = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* 배경색이 필요하다면 아래 주석을 해제하고 사용하세요 (이미지 기준 색상) */
+  /* background-color: #D3Ceb4; */
 `;
 
 const MainText = styled.p`
-  /* body에 폰트가 적용되어 있으므로 별도 지정 불필요하지만, 명시적으로 'NeoDGM' 사용 */
-
+  /* NeoDGM 폰트 적용 가정 */
   font-size: 32px;
-  color: #5d5d5d;
-  margin-bottom: 50px;
+
+  margin-bottom: 20px; /* 이미지와의 간격을 위해 조절 */
   text-align: center;
 `;
 
-const SubjectText = styled.p`
-  /* '주제' 텍스트는 좀 더 굵거나 다른 폰트를 사용해 강조할 수 있습니다. */
+// ✨ 새로 추가된 이미지 스타일
+const ExampleImage = styled.img`
+  width: 400px; /* 시안에 맞춰 적절한 크기 설정 */
+  height: 280px; /* 시안에 맞춰 적절한 크기 설정 */
+  background-color: #ffffff;
+  border-radius: 30px; /* 둥근 모서리 처리 */
+  object-fit: cover; /* 이미지가 비율을 유지하며 들어가도록 설정 */
+  margin: 20px 0; /* 위아래 텍스트와의 간격 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 살짝 그림자를 주어 입체감 (선택사항) */
+`;
 
+const SubjectText = styled.p`
   font-size: 32px;
-  color: #5d5d5d;
-  margin-top: 50px; /* MainText 아래에 여백 추가 */
+
+  margin-top: 20px; /* 이미지와의 간격을 위해 조절 */
   text-align: center;
 `;
 
 function App() {
   return (
     <>
-      {/* ⭐ 가장 중요! 전역 스타일을 적용합니다. */}
       <Frame>
         <MainText>연필과 A4용지를 준비해주세요!</MainText>
-        <SubjectText>주제: 나무</SubjectText>
+
+        {/* 👇 여기에 실제 사용할 예시 이미지 경로를 src에 넣어주세요 */}
+        <ExampleImage src={prepareImg} alt="예시 그림" />
+
+        <SubjectText>집,나무,사람을 그려주세요</SubjectText>
       </Frame>
     </>
   );
