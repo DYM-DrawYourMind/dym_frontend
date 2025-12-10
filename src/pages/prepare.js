@@ -33,7 +33,12 @@ const ExampleImage = styled.img`
   margin: 20px 0; /* 위아래 텍스트와의 간격 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 살짝 그림자를 주어 입체감 (선택사항) */
 `;
+const ImageExplain = styled.p`
+  font-size: 25px;
 
+  margin-top: 10px; /* 이미지와의 간격을 위해 조절 */
+  text-align: center;
+`;
 const SubjectText = styled.p`
   font-size: 32px;
 
@@ -49,7 +54,7 @@ function App() {
 
         {/* 👇 여기에 실제 사용할 예시 이미지 경로를 src에 넣어주세요 */}
         <ExampleImage src={prepareImg} alt="예시 그림" />
-
+        <ImageExplain>(예시 이미지)</ImageExplain>
         <SubjectText>집,나무,사람을 그려주세요</SubjectText>
       </Frame>
     </>
